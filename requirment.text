@@ -1,0 +1,6 @@
+uvicorn
+fastapi
+pandas
+psycopg2
+joblib
+scikit_learn
