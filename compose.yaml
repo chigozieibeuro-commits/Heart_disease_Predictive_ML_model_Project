@@ -3,9 +3,9 @@ services:
     build: .
     container_name: hearth_api
     ports:
-      -"8000:8000"
+      - "8000:8000"
     depends_on:
-      -db
+      - db
   db:
     postgres: image:17
     container_name: heart_disease
@@ -13,6 +13,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: health_file
       POSTGRES_PASSWORD: password
-    volumes: postgres_data :\var\lib\postgresql\data
+    volumes: postgres_data:\var\lib\postgresql\data
 volumes:
   postgres_data:
