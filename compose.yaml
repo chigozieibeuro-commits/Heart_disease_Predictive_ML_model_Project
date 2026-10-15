@@ -1,20 +1,22 @@
 services:
   app:
     build: .
-    container_name: hearth_api
+    container_name: heart_api
     ports:
       - "8000:8000"
     depends_on:
       - db
+
   db:
-    postgres: image:17
-    container_name: heart_disease
-    evn:
+    image: postgres:17
+    container_name: heart_database
+    environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: health_file
       POSTGRES_PASSWORD: password
-      ports:
-        - "5432:5432"
-    volumes: postgres_data:\var\lib\postgresql\data
+    port:
+      - "5432:5432"
+    volumes:
+      - progres_data:/var/lib/postgresql/data
 volumes:
-  postgres_data:
+  progres_data:
