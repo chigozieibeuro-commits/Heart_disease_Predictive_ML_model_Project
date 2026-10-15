@@ -7,7 +7,7 @@ from schema import  Record
 from database import  connection
 
 model=joblib.load("Heart_diseases_model.pkl")
-
+# print(model.feature_names_in_)
 app=FastAPI()
 
 @app.get("/")
@@ -19,7 +19,7 @@ def get():
 @app.post("/predict")
 def post(data:Record):
 
-    input_data=data.model_dump()
+    input_data =data.model_dump()
 
     update=pd.DataFrame([input_data])
 
@@ -30,20 +30,20 @@ def post(data:Record):
     con=connection()
     cursor=con.cursor()
 
-    query=""" INSERT INTO heart_disease_predictive_data(Age,Gender,Impluse,pressure_high,
+    query=""" INSERT INTO heart_disease_predictive_data (Age,Gender,Impluse,pressure_high,
     pressure_low,Glucose,Potassium,Troponin)
     VALUES(%s,%s,%s,%s,%s,%s,%s,%s);
-    
+
     """
 
     cursor.execute(
-        query,(data.age,data.age,data.gender,data.impulse,data.pressure_high,data.pressure_low,data.glucose,
-               data.glucose,data.potassium,data.Troponin)
+        query,(data.Age,data.Gender,data.Impluse,data.pressurehigh,data.pressurelow,data.Glucose,
+               data.Potassium,data.Troponin)
     )
 
     con.commit()
-    con.close()
     cursor.close()
+    con.close()
 
     return {
         'message': predict

@@ -2,9 +2,11 @@ FROM python:3.13
 
 WORKDIR  /app
 
-COPY requirement.text .
+Copy requirement.text .
 
 RUN pip install --no-cache-dir -r requirement.text
+
+COPY . .
 
 EXPOSE 8000
 

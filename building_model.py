@@ -32,7 +32,7 @@ X_train,X_test,y_train,y_test=train_test_split(
 
 preprocessing=ColumnTransformer(
     transformers=[
-        ('categories',OneHotEncoder(drop='first'),['Gender'])
+        ('categories',OneHotEncoder(handle_unknown="ignore", drop='first'),['Gender'])
     ],remainder="passthrough"
 )
 
@@ -65,3 +65,4 @@ best_model=grid.best_estimator_
 
 joblib.dump(best_model,"Heart_diseases_model.pkl")
 
+print(best_model.feature_names_in_)

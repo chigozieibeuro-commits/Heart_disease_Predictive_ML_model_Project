@@ -2,13 +2,13 @@ from pydantic import BaseModel
 
 
 class Record(BaseModel):
-    age:int
-    gender:int
-    impulse:int
-    pressure_high:int
-    pressure_low:int
-    glucose:int
-    potassium:int
-    Troponin:int
+    Age:int
+    Gender:str
+    Impluse:int
+    pressurehigh:int
+    pressurelow:int
+    Glucose:int
+    Potassium:float
+    Troponin:float
 
 

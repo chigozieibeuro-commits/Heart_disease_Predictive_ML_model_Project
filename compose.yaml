@@ -12,9 +12,9 @@ services:
     container_name: heart_database
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: health_file
+      POSTGRES_DB: heart
       POSTGRES_PASSWORD: password
-    port:
+    ports:
       - "5432:5432"
     volumes:
       - progres_data:/var/lib/postgresql/data
