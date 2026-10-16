@@ -6,7 +6,8 @@ from sklearn.preprocessing import  OneHotEncoder
 from sklearn.compose import  ColumnTransformer
 from sklearn.pipeline import Pipeline
 from   sklearn.model_selection import  GridSearchCV
-
+import os
+os.remove("READ.md")
 
 
 records=pd.read_csv(r"C:\Users\Dell\Desktop\Heart Attack.csv")
