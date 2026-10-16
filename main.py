@@ -30,15 +30,15 @@ def post(data:Record):
     con=connection()
     cursor=con.cursor()
 
-    query=""" INSERT INTO heart_disease_predictive_data (Age,Gender,Impluse,pressure_high,
-    pressure_low,Glucose,Potassium,Troponin)
-    VALUES(%s,%s,%s,%s,%s,%s,%s,%s);
+    query=""" INSERT INTO heart_predictive_data (Age,Gender,Impluse,pressure_high,
+    pressure_low,Glucose,Potassium,Troponin,result)
+    VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s);
 
     """
 
     cursor.execute(
         query,(data.Age,data.Gender,data.Impluse,data.pressurehigh,data.pressurelow,data.Glucose,
-               data.Potassium,data.Troponin)
+               data.Potassium,data.Troponin,predict)
     )
 
     con.commit()
